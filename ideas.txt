@@ -1,0 +1,49 @@
+First Meeting's Idea List
+
+
+DP
+GREEDY
+AUGMENTATION
+VEB
+D&C
+Monte Carlo
+Las Vegas
+
+Idea 0:
+BRUTE FORCE
+
+Utils:
+Generalized input Parser
+
+Generalized outputer
+
+Randomized input generator
+
+Idea 1:
+Brute force improvement:
+> Sort each players values in descending order
+> If < l continue
+
+Idea 2:
+2 4
+2 2 2 499
+1 500 500 500
+
+1 2 499 500
+
+Put all numbers in a set and sort it in descending order > n*m*lg(n*m)
+sort each players values in descending order > n*m*lg(m)
+l = from the first number to the one before the last of the set
+  use that l to update min rankings
+  > n*m*n*m -> can we get this lower
+
+(?)
+After the first calculations with l = max(#)
+Go in a ascending order from player with min sum to the max sum
+
+Idea 3:
+If we trim from each player given an l value, we can remove 1 from each with the same value.
+
+Idea 4:
+pick l such that c*n is the number of total possible l values
+FFT?
