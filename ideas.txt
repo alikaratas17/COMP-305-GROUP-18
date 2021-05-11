@@ -47,3 +47,11 @@ If we trim from each player given an l value, we can remove 1 from each with the
 Idea 4:
 pick l such that c*n is the number of total possible l values
 FFT?
+
+Contribution to Idea 2:
+We can store the indexes of last changed score of player (according to l value) in an array. (1st array)
+We can store the total score of each player in an array. (2nd array)
+Within the for loop of l values, we can start with the first score that is not changed according to l with the 1st array. 
+We can compare that value with the l value and if the value is larger than l value, we can change the total score of the player found in 2nd array.
+If the total score array give the minimum final place than the before, we will change the update the first and the second array respectively.
+
