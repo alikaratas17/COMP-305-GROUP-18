@@ -55,3 +55,16 @@ Within the for loop of l values, we can start with the first score that is not c
 We can compare that value with the l value and if the value is larger than l value, we can change the total score of the player found in 2nd array.
 If the total score array (2nd array) gives the minimum final place than before, we will update the first and the second array respectively.
 
+
+
+Ideas to improve lValueArrays:
+  -> keep numbers in sorted histogram format
+  -> use count of number of previous l value that wil change k[i]
+
+keep min of maxes and remove it later, when you remove them get new min of maxes?
+  players = [
+    [4, 4, 3]
+    [4, 4, 3]
+    [4, 3, 2]
+  ]
+  O(m*n) to reduce overall workload?
