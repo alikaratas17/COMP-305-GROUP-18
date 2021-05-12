@@ -24,6 +24,16 @@ class Parser:
         player = (i,[int(num) for num in current])
         l.append(player)
     return l
+  def readDataNew(self,l=[]):
+    with open(self.__filename,"r") as file:
+      info = file.readline().split()
+      self.__playerCount = int(info[0])
+      self.__roundCount = int(info[1])
+      for i in range(self.__playerCount):
+        current = file.readline().split()
+        player = [int(num) for num in current]
+        l.append(player)
+    return l
   def readDataHistogram(self,h = [],s = set()):
     with open(self.__filename,"r") as file:
       info = file.readline().split()
