@@ -1,23 +1,10 @@
 from parser import Parser
 from Outputer import Outputer
+from Hist import Hist
+import matplotlib.pyplot as plt
 """
 Didnt work
 """
-class Hist:
-  def __init__(self):
-    self.keys = dict()
-  def insert(self,value):
-    if value in self.keys:
-      self.keys[value] +=1
-    else:
-      self.keys[value] = 1
-  def getSortedNonUniqueKeys(self):
-    s = []
-    for value,count in self.keys.items():
-      if count > 1:
-        s.append(count)
-    return sorted(s,reverse = True)
-
 def solve(filename):
   parser = Parser(filename)
   l = []
@@ -26,8 +13,9 @@ def solve(filename):
   for x,y in l:
     for i in y:
       hist.insert(i)
-  numbers = hist.getSortedNonUniqueKeys()
+  numbers = hist.getSortedKeys()#getSortedNonUniqueKeys()
   min_orders = calculate_orders(l)
+  l_values = [numbers[0]]*parser.getPlayerCount()
   round_count = parser.getRoundCount()
   for i in range(len(l)):
     l[i] = (l[i][0],sorted(l[i][1],reverse=True))
@@ -52,7 +40,37 @@ def solve(filename):
     #calculate min orders
     orders = calculate_orders(l)
     for i in range(parser.getPlayerCount()):
-      min_orders[i] = min(min_orders[i],orders[i])
+      if min(min_orders[i],orders[i]) != min_orders[i]:
+        min_orders[i] = orders[i]
+        l_values[i] = num
+  l_count_pairs = hist.getSortedKeyValuePairs()
+  y_values = [0]*len(l_count_pairs)
+  x_values = []
+  z_values = []
+  j=0
+  x1 = []
+  x2 = []
+  for x,y in l_count_pairs:
+    x_values.append(x)
+    z_values.append(y)
+    for i in range(len(l_values)):
+      if l_values[i] == x:
+        y_values[j]+=1
+        if not x in x1:
+          x1.append(x)
+          x2.append(y)
+    
+    j+=1
+  plt.figure()
+  plt.title("Importances")
+  plt.bar(x_values,y_values)
+  plt.figure()
+  plt.title("Counts")
+  plt.bar(x_values,z_values)
+  plt.figure()
+  plt.title("Counts of important ones")
+  plt.bar(x1,x2)
+  plt.show()
   return min_orders
 
 def calculate_orders(l):
