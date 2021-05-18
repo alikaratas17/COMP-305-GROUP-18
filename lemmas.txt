@@ -1,0 +1,75 @@
+  Terminology:
+numbers =
+| a[1,1] a[1,2] ... a[1,m] |
+| a[2,1] a[2,2] ... a[2,m] |
+|   ...   ...   ...   ...  |
+| a[n,1] a[n,2] ... a[n,m] |
+
+n x m matrix where n is player count, m is round count
+
+l is a number
+L is a set of numbers (i.e. possible l values)
+
+  Aim of finding lemmas:
+If we find a useful relation / property of the structure of the problem or directly of the problem then we can utilize it to get a fast algorithm.
+
+
+  Lemma 1:
+l > min(a) for all l in L
+smallest l value that needs to be considered is larger than the smallest value present in a
+
+  Intuitive Proof / Reasoning:
+if l was min(a) then all values would be equal and all players would get player count as their order which would be greater than or equal to any other order they can get thus it would not be useful.
+
+
+  Lemma 2:
+Looking at only values of a is enough to get the result.
+Example: a = [
+  [1, 2, 4, 7]
+  [1, 5, 7, 7]
+]
+Here we can only consider 1,2,4,5,7 and using lemma 1 it can be reduced to 2,4,5,7
+
+  Intuitive Proof / Reasoning:
+
+
+  Lemma 3:
+If all players have t of the same number those can be removed together
+  Intuitive Proof / Reasoning:
+Their sum would not be effected.
+
+
+  Lemma 4:
+In (moderately) best case n l values would give the correct result.
+  Intuitive Proof / Reasoning:
+There are n players each with one minimum order, corresponding to at least one l value.
+
+  Lemma 5:
+minimum order of 1 doesn't need any updating
+  Intuitive Proof / Reasoning:
+It is the best possible
+
+  Lemma 6:
+The player with the lowest single value (non-duplicate case) will have a minimum order of 1. Also: For k players with the lowest value they will be at most k'th.
+  Intuitive Proof / Reasoning:
+Assume that number is b, at b+1 all other numbers will be b+1 and that player's sum will be 1 below all others.
+
+  Lemma 7:
+
+  Intuitive Proof / Reasoning:
+
+  Lemma 8:
+
+  Intuitive Proof / Reasoning:
+
+  Lemma 9:
+
+  Intuitive Proof / Reasoning:
+
+  Lemma 10:
+
+  Intuitive Proof / Reasoning:
+
+  Lemma 11:
+
+  Intuitive Proof / Reasoning:

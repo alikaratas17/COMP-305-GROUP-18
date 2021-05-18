@@ -56,7 +56,6 @@ try:
 except:
   min_orders = calculate_orders(sums)
 
-#print(len(l_values))
 k = [0]*playerCount
 old_l_value = l_values.pop(0)
 l_value = old_l_value
@@ -75,7 +74,7 @@ orders = calculate_orders(sums)
 for i in range(playerCount):
   min_orders[i] = min(min_orders[i],orders[i])
 
-p = 0.5
+p = 1/roundCount
 index = 0
 length =len(l_values)
 
