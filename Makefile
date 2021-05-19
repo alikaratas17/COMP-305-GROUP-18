@@ -3,3 +3,5 @@ make:
 	./solution
 clean:
 	rm solution
+time:
+	time ./solution

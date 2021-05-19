@@ -2,10 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 
-void sort_numbers(unsigned int*,int);
-int insert_numbers(unsigned int*,unsigned int*,int,int);
-void calculate_sums(unsigned long*,unsigned int*,int,int);
-void calculate_orders(int *,unsigned long*,int);
+void sort_numbers(int*,int);
+int insert_numbers(int*,int*,int,int);
+void calculate_sums(long*,int*,int,int);
+void calculate_orders(int *,long*,int);
 void compare_orders(int*,int*,int);
 int main(){
   char* filename = "./Test Cases/baby_comp_4.txt";
@@ -16,14 +16,14 @@ int main(){
   int n,m;
   fscanf(fp,"%d",&n);
   fscanf(fp,"%d",&m);
-  unsigned int num;
+  int num;
 
   int i = 0;
-  unsigned int numbers[n][m];
+  int numbers[n][m];
   while (i<n){
     int j = 0;
     while(j<m){
-      fscanf(fp,"%u",&num);
+      fscanf(fp,"%d",&num);
       numbers[i][j] = num;
       j++;
     }
@@ -33,14 +33,20 @@ int main(){
   }
   fclose(fp);
   
-  unsigned int l_values [n*m];
+  int l_values [n*m];
   int size = insert_numbers(l_values,numbers,n,m);
-  unsigned long sums[n];
+  long sums[n];
   
   calculate_sums(sums,numbers,n,m);
+  /*for(int i = 0;i< n;i++)
+    printf("%d ",sums[i]);
+  printf("\n");*/
   int min_orders [n];
   int orders [n];
   calculate_orders(orders,sums,n);
+  /*for(int i = 0;i< n;i++)
+    printf("%d ",orders[i]);
+  printf("\n");*/
   
   int k[n];
   for (int i=0;i<n;i++){
@@ -48,25 +54,31 @@ int main(){
     min_orders[i] = orders[i];
   }
   
-  unsigned int old_l = l_values[0];
-  unsigned int l;
+  int old_l = l_values[0];
+  int l;
   for(int i = 0; i< size;i++){
     l = l_values[i];
     for(int j = 0; j < n;j++){
-      sums[i] += (k[i]* (l - old_l));
+      sums[j] += (k[j]* (l - old_l));
       int dv = 0;
-      if (k[i]<m){
-        while(numbers[i][k[i]] >= l){
-          dv -= (numbers[i][k[i]] - l);
-          k[i]++;
-          if (k[i]==m)
+      if (k[j]<m){
+        while(numbers[j][k[j]] >= l){
+          dv += (numbers[j][k[j]] - l);
+          k[j]++;
+          if (k[j]==m)
             break;
         }
       }
-      sums[i]+=dv;
+      sums[j]-=dv;
     }
     calculate_orders(orders,sums,n);
     compare_orders(min_orders,orders,n);
+   /* for(int j_1 = 0;j_1< n;j_1++)
+    printf("%d ",sums[j_1]);
+      printf("\n");*/
+      /* for(int j_1 = 0;j_1< n;j_1++)
+    printf("%d ",orders[j_1]);
+      printf("\n");*/
     old_l = l;
   }
   fpOut = fopen(outputFilename, "w");
@@ -78,7 +90,7 @@ int main(){
   return 0;
 }
 //sort_numbers sorts numbers[i] in descending order using insertion sort
-void sort_numbers(unsigned int * array,int length){
+void sort_numbers(int * array,int length){
   for (int i = 0; i<length;i++){
     int j = i;
     while(j > 0 && array[j-1] < array[j]){
@@ -92,13 +104,13 @@ void sort_numbers(unsigned int * array,int length){
 
 
 // numbers[i][j]-> *((numbers+m*i)+j)
-int insert_numbers(unsigned int * l_values,unsigned int * numbers,int n,int m){
+int insert_numbers(int * l_values,int * numbers,int n,int m){
   int current[n];
   for (int i = 0;i < n;i++){
     current[i]=0;
   }
   int max_index = 0;
-  unsigned int max = 0;
+  int max = 0;
   int index = 0;
 
   for(int i = 0; i< n;i++){
@@ -155,8 +167,8 @@ int insert_numbers(unsigned int * l_values,unsigned int * numbers,int n,int m){
   return index;
 }
 
-void calculate_sums(unsigned long * sums,unsigned int * numbers,int n,int m){
-  unsigned int num;
+void calculate_sums(long * sums,int * numbers,int n,int m){
+  int num;
   for (int i= 0;i<n;i++){
     sums[i]=0;
     for (int j= 0;j<m;j++){
@@ -168,17 +180,17 @@ void calculate_sums(unsigned long * sums,unsigned int * numbers,int n,int m){
 }
 
 //Update 
-void calculate_orders(int *orders,unsigned long* sums,int n){
+void calculate_orders(int *orders,long* sums,int n){
   int indexes [n];
-  unsigned long s_copy[n];
+  long s_copy[n];
   for (int i = 0;i<n;i++){
     indexes[i] = i;
     s_copy[i]= sums[i];
   }
   for (int i = 0; i<n;i++){
     int j = i;
-    while(j > 0 && s_copy[j-1]<s_copy[j]){
-      unsigned long temp = s_copy[j];
+    while(j > 0 && ( s_copy[j-1]<  s_copy[j])){
+      long temp = s_copy[j];
       s_copy[j] = s_copy[j-1];
       s_copy[j-1] = temp;
       int temp2 = indexes[j-1];
@@ -191,7 +203,7 @@ void calculate_orders(int *orders,unsigned long* sums,int n){
   orders[indexes[0]]=o;
   o--;
   for(int i =1;i<n;i++){
-    if(s_copy[i]<s_copy[i-1]){
+    if(s_copy[i] <  s_copy[i-1]){
       orders[indexes[i]]=o;
     }else{
       orders[indexes[i]]=orders[indexes[i-1]];

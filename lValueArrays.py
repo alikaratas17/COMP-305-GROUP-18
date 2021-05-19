@@ -34,7 +34,8 @@ def main():
   l_values = sorted(list(s),reverse = True)
   sums = [sum(player) for player in players]
   min_orders = calculate_orders(sums)
-  print(sums)
+  #print(sums)
+  #print(min_orders)
   k = [0]*playerCount
   old_l_value = l_values.pop(0)
   for l_value in l_values:
@@ -50,7 +51,8 @@ def main():
             break
       sums[i] += dv
     orders = calculate_orders(sums)
-    print(sums)
+    #print(sums)
+    #print(orders)
     for i in range(playerCount):
       min_orders[i] = min(min_orders[i],orders[i])
     old_l_value = l_value
