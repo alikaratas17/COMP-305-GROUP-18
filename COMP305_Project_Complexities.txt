@@ -1,0 +1,34 @@
+toy example complexity:
+n = player count, m = round count
+while loop for l value = if we think that all of the scores are unique,
+while loop would iterate n*m time.
+İç looplar --> n*m
+Total = O(n*m*n*m) = O(n^2*m^2)
+
+lValueArrays Complexity:
+for l_value in l_values --> In the worst case, there will be n*m l 
+distinct values.
+for i in range(playerCount) --> there are n players
+while current[k[i]] >= l_value --> In the worst case, all of the 
+scores of the player could be same and next chosen l value would 
+be smaller than the score of the player. Therefore, while loop should
+iterate m times.
+Total Complexity = O(n*m*n*m) in the worst case
+Expected Complexity = O(n*m*n*1) because while loop generally iterates
+1 time.(Proof is needed)
+
+Monte Carlo Complextiy:
+if p = 1/roundCount, then number of distict l value = n
+for i in range(playerCount) --> n
+while current[k[i]] >= l_value --> In the worst case, all of the 
+scores of the player could be same and next chosen l value would 
+be smaller than the score of the player. Therefore, while loop should
+iterate m times.
+It does not give always correct solution. Algorithm should run more than one to give the correct solution (the number of run?)
+Total Complexity = O(n^2*m)
+
+
+
+
+
+
