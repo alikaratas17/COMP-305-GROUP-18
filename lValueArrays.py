@@ -18,8 +18,8 @@ Worst case complexity: O(n*m*n*m)
 # calculate dl and update sum using that value dl = li - li-1
 
 def main():
-  #filename = "./Test Cases/baby_comp_4.txt"
-  filename = "./random_test_case.txt"
+  filename = "./Test Cases/baby_comp_2.txt"
+  #filename = "./random_test_case.txt"
   parser = Parser(filename)
   players = []
   parser.readDataNew(players)
@@ -34,6 +34,7 @@ def main():
   l_values = sorted(list(s),reverse = True)
   sums = [sum(player) for player in players]
   min_orders = calculate_orders(sums)
+  print(sums)
   k = [0]*playerCount
   old_l_value = l_values.pop(0)
   for l_value in l_values:
@@ -49,6 +50,7 @@ def main():
             break
       sums[i] += dv
     orders = calculate_orders(sums)
+    print(sums)
     for i in range(playerCount):
       min_orders[i] = min(min_orders[i],orders[i])
     old_l_value = l_value
