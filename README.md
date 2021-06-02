@@ -1,9 +1,21 @@
 # COMP-305-GROUP-18
 TODO List:
-  > Randomized Test Case Generator
-  > Ideas to improve best yet solution
-  > Monte Carlo method -> use each l value with some probability
-  > Analyze important l values
+  > Development of bruto force method --> done
+  > Implementing parser --> done
+  > Implementing outputer --> done
+  > Using set to decrease the number of l values --> done
+  > Constructing l values from the distinct scores of the players (withSet algorithm) --> done
+  > Augmentation to withSet algorithm with sums and indexes arrays --> done
+  > Implementation of solution with augmentation in c --> done
+  > Constructing histogram as a solution --> done
+  > Randomized Test Case Generator --> done
+  > Ideas to improve best yet solution --> done
+  > Monte Carlo method -> use each l value with some probability --> done
+  > Calculating of complexities of each algorithm (withSet, solution.c, mc) --> done
+  > Analyze important l values --> not done
+  > Preparation of presentation --> done
+  > Constructing plots with different n and m values versus runtime --> done
+  > Constructing lemma to prove our hypthesis about not using all the l values --> done
 
 How to run the codes?
 1.withSet.py (in python_files directory)
@@ -55,10 +67,8 @@ Another augmentation is an array to keep the index of the last changed score for
 By keeping the total scores and the index of the last changed score for each player, we do not need to update the scores that were updated with the previous l values.
 Monte Carlo:
 Another method we used was Monte Carlo to decrease the number of l values tried. In this method, probability was taken as 1/number of goal posts (roundCount in mc.py). 
-This method works very fast but it does not give the correct output all the time. 
-
-MC'DE NE YAPTIK
-
+This method works very fast but it does not give the correct output all the time. With the 1/num of goal posts probability l values are selected from the file and 
+total scores of the players were updated according to selected l values and minimum final placements were calculated.  
 
 How does solution.c work?
 1. Test case file path is taken.
