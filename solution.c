@@ -9,7 +9,7 @@ void calculate_orders(int *,long*,int);
 void compare_orders(int*,int*,int);
 int main(int argc, char * argv[]){
   char* filename = argv[1];//"./Test Cases/baby_comp_4.txt";
-  char * outputFilename = "./outputC.txt";
+  char * outputFilename = "./outputs/outputC.txt";
   FILE * fpOut;
   FILE * fp;
   fp = fopen(filename, "r");
