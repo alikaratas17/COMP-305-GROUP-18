@@ -104,8 +104,7 @@ while index < length:
 outputer = Outputer(outputFile)
 outputer.output(min_orders)
 with open(numbersFile,"w") as f:
-  if l_values is []:
-    continue
-  f.write(str(l_values.pop(0)))
+  if not l_values is []:
+    f.write(str(l_values.pop(0)))
   for n in l_values:
     f.write(","+str(n))
