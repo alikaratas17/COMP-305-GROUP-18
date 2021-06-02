@@ -23,9 +23,9 @@ for i in range(playerCount) --> n
 while current[k[i]] >= l_value --> In the worst case, all of the 
 scores of the player could be same and next chosen l value would 
 be smaller than the score of the player. Therefore, while loop should
-iterate m times.
+iterate n times.
 It does not give always correct solution. Algorithm should run more than one to give the correct solution (the number of run?)
-Total Complexity = O(n^2*m)
+Total Complexity = O(n^3)
 
 
 
