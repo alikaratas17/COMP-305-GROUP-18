@@ -17,6 +17,12 @@ How to run the codes?
 -Final results can be found in outputC.txt
 
 Results of the test cases:
+Results of the baby_comp_1.txt for each algorithm can be found under /outputs/outputForTestCase1/.
+Results of the baby_comp_2.txt for each algorithm can be found under /outputs/outputForTestCase2/.
+Results of the baby_comp_3.txt for each algorithm can be found under /outputs/outputForTestCase3/.
+Results of the baby_comp_4.txt for each algorithm can be found under /outputs/outputForTestCase4/.
+
+Runtime Results:
 Test case 1:
 Runtime of withSet.py
 Runtime of mc.py
