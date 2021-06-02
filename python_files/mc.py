@@ -18,7 +18,7 @@ def calculate_orders(s):
   return orders
 
 
-filename = "./../inputs/baby_comp_4.txt"
+filename = "./../inputs/baby_comp_3.txt"
 parser = Parser(filename)
 players = []
 parser.readDataNew(players)
@@ -104,7 +104,7 @@ while index < length:
 outputer = Outputer(outputFile)
 outputer.output(min_orders)
 with open(numbersFile,"w") as f:
-  if not l_values is []:
+  if  len(l_values)>0:
     f.write(str(l_values.pop(0)))
   for n in l_values:
     f.write(","+str(n))
