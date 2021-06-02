@@ -90,6 +90,6 @@ def calculate_orders(players):
     o -=1
   return orders
       
-l= solve("./Test Cases/baby_comp_4.txt")
-o = Outputer("./output5.txt")
+l= solve("./../inputs/baby_comp_4.txt")
+o = Outputer("./../outputs/output5.txt")
 o.output(l)

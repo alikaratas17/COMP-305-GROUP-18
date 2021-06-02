@@ -1,5 +1,6 @@
 from parser import Parser
 from Outputer import Outputer
+import matplotlib.pyplot as plt
 def solve(filename):
   parser = Parser(filename)
   l = []
@@ -52,13 +53,35 @@ def calculate_orders(l):
     o -=1
   return orders
       
+def calculate_mean(player):
+  return sum(player[1])/len(player[1])
+def calculate_variance(p,m):
+  v= 0
+  for x in p[1]:
+    v += (m-x)**2
+  return v/(len(p[1])-1)
 
 
+filename ="./../inputs/baby_comp_4.txt"
 
-
-
-
-
-l= solve("./Test Cases/baby_comp_4.txt")
-o = Outputer("./output1.txt")
-o.output(l)
+s= solve(filename)
+parser = Parser(filename)
+l = []
+parser.readData(l)
+x = []
+y= []
+z = []
+for i in range(len(l)):
+  player = l[i]
+  m = calculate_mean(player)
+  v = calculate_variance(player,m)
+  z.append(v)
+  x.append(m)
+  y.append(s[i])
+plt.figure()
+plt.title("means")
+plt.bar(y,x)
+plt.figure()
+plt.title("variances")
+plt.bar(y,z)
+plt.show()

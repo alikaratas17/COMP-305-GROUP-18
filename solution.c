@@ -7,8 +7,8 @@ int insert_numbers(int*,int*,int,int);
 void calculate_sums(long*,int*,int,int);
 void calculate_orders(int *,long*,int);
 void compare_orders(int*,int*,int);
-int main(){
-  char* filename = "./Test Cases/baby_comp_4.txt";
+int main(int argc, char * argv[]){
+  char* filename = argv[1];//"./Test Cases/baby_comp_4.txt";
   char * outputFilename = "./outputC.txt";
   FILE * fpOut;
   FILE * fp;

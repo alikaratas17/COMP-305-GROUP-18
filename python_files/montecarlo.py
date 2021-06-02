@@ -16,7 +16,7 @@ import random
 # calculate dl and update sum using that value dl = li - li-1
 
 def main():
-    filename = "./Test Cases/baby_comp_2.txt"
+    filename = "./../inputs/baby_comp_2.txt"
     parser = Parser(filename)
     players = []
     parser.readDataNew(players)
@@ -57,7 +57,7 @@ def main():
             min_orders[i] = min(min_orders[i], orders[i])
             # l_changes[i] = l_value
         old_l_value = l_value
-    outputer = Outputer("./output2.txt")
+    outputer = Outputer("./../outputs/output2.txt")
     outputer.output(min_orders)
     # print(l_changes)
 

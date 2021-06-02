@@ -1,21 +1,15 @@
 from parser import Parser
 from Outputer import Outputer
-from Hist import Hist
-import matplotlib.pyplot as plt
-"""
-Didnt work
-"""
 def solve(filename):
   parser = Parser(filename)
   l = []
   parser.readData(l)
-  hist = Hist()
+  s = set()
   for x,y in l:
     for i in y:
-      hist.insert(i)
-  numbers = hist.getSortedKeys()#getSortedNonUniqueKeys()
+      s.add(i)
+  numbers = sorted(list(s),reverse = True)
   min_orders = calculate_orders(l)
-  l_values = [numbers[0]]*parser.getPlayerCount()
   round_count = parser.getRoundCount()
   for i in range(len(l)):
     l[i] = (l[i][0],sorted(l[i][1],reverse=True))
@@ -40,37 +34,7 @@ def solve(filename):
     #calculate min orders
     orders = calculate_orders(l)
     for i in range(parser.getPlayerCount()):
-      if min(min_orders[i],orders[i]) != min_orders[i]:
-        min_orders[i] = orders[i]
-        l_values[i] = num
-  l_count_pairs = hist.getSortedKeyValuePairs()
-  y_values = [0]*len(l_count_pairs)
-  x_values = []
-  z_values = []
-  j=0
-  x1 = []
-  x2 = []
-  for x,y in l_count_pairs:
-    x_values.append(x)
-    z_values.append(y)
-    for i in range(len(l_values)):
-      if l_values[i] == x:
-        y_values[j]+=1
-        if not x in x1:
-          x1.append(x)
-          x2.append(y)
-    
-    j+=1
-  plt.figure()
-  plt.title("Importances")
-  plt.bar(x_values,y_values)
-  plt.figure()
-  plt.title("Counts")
-  plt.bar(x_values,z_values)
-  plt.figure()
-  plt.title("Counts of important ones")
-  plt.bar(x1,x2)
-  plt.show()
+      min_orders[i] = min(min_orders[i],orders[i])
   return min_orders
 
 def calculate_orders(l):
@@ -95,6 +59,6 @@ def calculate_orders(l):
 
 
 
-l= solve("./Test Cases/baby_comp_4.txt")
-o = Outputer("./output2.txt")
+l= solve("./../inputs/baby_comp_4.txt")
+o = Outputer("./../outputs/output1.txt")
 o.output(l)

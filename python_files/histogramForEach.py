@@ -76,6 +76,6 @@ def calculate_orders(l):
 
 
 
-l= solve("./Test Cases/baby_comp_4.txt")
-o = Outputer("./output4.txt")
+l= solve("./../inputs/baby_comp_4.txt")
+o = Outputer("./../outputs/output4.txt")
 o.output(l)

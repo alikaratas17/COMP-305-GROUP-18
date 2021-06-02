@@ -18,7 +18,7 @@ def calculate_orders(s):
   return orders
 
 
-filename = "./Test Cases/baby_comp_4.txt"
+filename = "./../inputs/baby_comp_4.txt"
 parser = Parser(filename)
 players = []
 parser.readDataNew(players)
@@ -31,7 +31,7 @@ for i in range(playerCount):
 sums = [sum(player) for player in players]
 
 
-numbersFile = "./numbersMC.txt"
+numbersFile = "./../numbersMC.txt"
 try:
   with open(numbersFile,"r") as f:
     lines = f.readlines()
@@ -43,7 +43,7 @@ except:
       s.add(i)
   l_values = sorted(list(s),reverse = True)
 
-outputFile = "./outputMC.txt"
+outputFile = "./../outputs/outputMC.txt"
 
 try:
   with open(outputFile,"r") as f:
