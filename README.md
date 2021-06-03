@@ -9,6 +9,7 @@ TODO List:
   > Implementation of solution with augmentation in c --> done
   > Constructing histogram as a solution --> done
   > Randomized Test Case Generator --> done
+  > Other approaches such as using histogram and FFT were tried --> done
   > Ideas to improve best yet solution --> done
   > Monte Carlo method -> use each l value with some probability --> done
   > Calculating of complexities of each algorithm (withSet, solution.c, mc) --> done
@@ -69,6 +70,8 @@ Monte Carlo:
 Another method we used was Monte Carlo to decrease the number of l values tried. In this method, probability was taken as 1/number of goal posts (roundCount in mc.py). 
 This method works very fast but it does not give the correct output all the time. With the 1/num of goal posts probability l values are selected from the file and 
 total scores of the players were updated according to selected l values and minimum final placements were calculated.  
+Moreover, we tried two different approaches to solve the problems. These approaches are histogram and FFT. However, since they did not give the correct answer and runtimes are 
+too high, we did not move on those methods.
 
 How does solution.c work?
 1. Test case file path is taken.
