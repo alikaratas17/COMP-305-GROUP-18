@@ -67,6 +67,9 @@ avg = [sum(case1_1+case1_2+case1_3)/9,
     ];
 figure
 bar(avg)
+title("Sample Runtimes")
+xlabel("n,m Values")
+ylabel("Runtimes (s)")
 x = {'n = 500, m = 100',
     'n = 500, m = 50',
     'n = 100, m = 500',
