@@ -1,6 +1,7 @@
 from parser import Parser
 from Outputer import Outputer
 import random
+import sys
 
 def calculate_orders(s):
   sums = [(i,s[i]) for i in range(len(s))]
@@ -18,7 +19,7 @@ def calculate_orders(s):
   return orders
 
 
-filename = "./../inputs/baby_comp_3.txt"
+filename = sys.argv[1]
 parser = Parser(filename)
 players = []
 parser.readDataNew(players)
