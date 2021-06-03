@@ -37,21 +37,21 @@ Results of the baby_comp_4.txt for each algorithm can be found under /outputs/ou
 
 Runtime Results:
 Test case 1:
-Runtime of withSet.py
-Runtime of mc.py
-Runtime of solution.c
+Runtime of withSet.py: 0.036s
+Runtime of mc.py: 0.035s
+Runtime of solution.c: 0.005s
 Test case 2:
-Runtime of withSet.py
-Runtime of mc.py
-Runtime of solution.c
+Runtime of withSet.py: 0.033s
+Runtime of mc.py: 0.035s
+Runtime of solution.c: 0.004s
 Test case 3:
-Runtime of withSet.py
-Runtime of mc.py
-Runtime of solution.c
+Runtime of withSet.py: 0.032s: 
+Runtime of mc.py: 0.038s
+Runtime of solution.c: 0.004s
 Test case 4:
-Runtime of withSet.py
-Runtime of mc.py
-Runtime of solution.c
+Runtime of withSet.py: 46.717s
+Runtime of mc.py: 0.326s
+Runtime of solution.c: 4.861s
 
 Summary:
 Brute Force:
