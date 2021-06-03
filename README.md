@@ -97,4 +97,30 @@ How does solution.c work?
 
 
 
+Lemma:
+Using scores as l values that do not exist in the set of all scores of all players, do not have an effect on minimum orders.
 
+Proof:
+Let p1,p2 be players with the following ordering (in descending order) of scores:
+p1  = [k+j, ..., k, k-y1, ...]
+p2 = [k+u, ..., k, k-y2,...],
+
+where y1,y2 > i, p1 has c1 elements >= k, p2 has c2 elements >= k [These are all to the left of k in the above arrays]
+k > k-i > k-y1, k-y2 (Condition 1.1)
+where k-i does not exist in either p1 or p2. Also, c1 > c2; so that p1 has more elems >= k than p2.
+
+When the l value is k:
+Case 1: sum(p1) < sum(p2):
+  If we use k-i then the ordering will not change. This is due to c1 being larger than c2. That means that p1 has more elements that decrease by i,
+  so sum'(p1) = sum(p1) - c1 * i, whereas  sum'(p2) = sum(p2) - c2 * i => sum'(p1) < sum'(p2), for all i that satisfy the above condition (1.1)
+  Thus, looking at an intermediate value in this case does not change anyting since c1 and c2 remain constant.
+
+Case 2: sum(p1) = sum(p2):
+In this case sum'(p1) < sum'(p2) when l value is k-i, however the same effect will be achieved at max(k-y1,k-y2)
+Thus, looking at an intermediate value in this case does not change anything that wouldn't have been changed at a non-intermediate value of k-y1 or k-y2.
+
+Case 3: sum(p1) > sum(p2):
+In this case, if we do not have sum'(p1) < sum'(p2) for any intermediate value than the minimum orders will not change. If we have that relation then reducing further to a non-intermediate value would preserve this relation since c1, c2 are constants and the difference sum(p1)-sum(p2) will only get lower (more negative) as we decrease the i value that gives k-i for the l value.
+Thus, looking at an intermediate value in this case does not give any min-ordering that wouldn't have come from any non-intermediate value lower than this.
+
+Thus in all of the possible cases we do not gain any new min-ordering information from scores that do not exist in the players' arrays.
