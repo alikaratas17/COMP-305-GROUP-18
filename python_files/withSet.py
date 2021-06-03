@@ -1,5 +1,6 @@
 from parser import Parser
 from Outputer import Outputer
+import sys
 def solve(filename):
   parser = Parser(filename)
   l = []
@@ -59,6 +60,6 @@ def calculate_orders(l):
 
 
 
-l= solve("./../inputs/baby_comp_4.txt")
+l= solve(sys.argv[1])
 o = Outputer("./../outputs/output1.txt")
 o.output(l)
