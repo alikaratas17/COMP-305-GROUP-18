@@ -1,3 +1,19 @@
+# COMP 305 Project
+
+This repository contains a project completed for **COMP 305**.
+
+The main focus of this project is applying **algorithmic problem solving** and analyzing different solution approaches.
+
+It demonstrates course topics such as:
+
+- problem modeling
+- algorithm design
+- pseudocode
+- complexity analysis
+- runtime comparison
+
+The project was developed as part of the COMP 305 coursework.
+
 # COMP-305-GROUP-18
 TODO List:
   > Development of bruto force method --> done
